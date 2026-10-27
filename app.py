@@ -91,7 +91,7 @@ if st.session_state.stage == 1:
             st.rerun()
 
 elif st.session_state.stage == 2:
-    st.image("https://images.unsplash.com/photo-1517299321609-52687d1af496?q=80&w=1000&auto=format&fit=crop", caption="陡峭的冰雪路面，暗藏杀机", use_container_width=True)
+    st.image("https://img.kalvin.cn/d/file/2022-06-07/1654611553373538.jpg", caption="陡峭的冰雪路面，暗藏杀机", use_container_width=True)
     st.subheader("第二关：冰雪路面无防滑装备")
     st.write("""
     雪下藏着暗冰，路面溜滑。每抬一步，都很吃力。稍有不慎，就会摔下去。
