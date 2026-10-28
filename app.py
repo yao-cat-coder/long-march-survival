@@ -101,15 +101,16 @@ if st.session_state.stage == 1:
     """)
     col1, col2 = st.columns(2)
     with col1:
-        if st.button("带武器冲进仅存的村落，强行征收衣服和粮食", use_container_width=True):
-            st.session_state.c1 = 1
-    with col2:
         if st.button("严格执行民族政策，不拿群众一物，按价购买", use_container_width=True):
             st.session_state.c1 = 2
+
+    with col2:
+        if st.button("带武器冲进仅存的村落，强行征收衣服和粮食", use_container_width=True):
+            st.session_state.c1 = 1
             
     if st.session_state.c1 == 1:
         st.error("""💀 **全军覆没！**
-        因为你的举动更加坐实了国民党的宣传，没有村落剩余，因为抢到的衣物和粮食太少了，他们倒下后就再也没有站起来，很多人冻伤饿死。最后你也撑不住，冻死了。""")
+        因为你的举动更加坐实了国民党的宣传，所有村落都跑了，而抢到的衣物和粮食太少，战士们倒下后就再也没有站起来，很多人冻伤饿死。最后你也撑不住，冻死了。""")
         st.markdown("""
         <div class="danger-card">
             <b>📜 历史档案：</b> 军需处长：负责全团御寒物资调配，手里有棉衣，“但一件都没有留给自己”，穿着单衣冻死在夹金山雪地里。<br>
@@ -223,11 +224,11 @@ elif st.session_state.stage == 4:
     """)
     col1, col2 = st.columns(2)
     with col1:
-        if st.button("把所有人用绑腿绳串起来，顶着暴风雪强行冲顶", use_container_width=True):
-            st.session_state.c4 = 1
-    with col2:
         if st.button("停止冲锋，用布条蒙眼避风，等待老乡说的天气窗口期", use_container_width=True):
             st.session_state.c4 = 2
+    with col2:
+        if st.button("把所有人用绑腿绳串起来，顶着暴风雪强行冲顶", use_container_width=True):
+            st.session_state.c4 = 1
             
     if st.session_state.c4 == 1:
         st.error("""💀 **全军覆没！**
