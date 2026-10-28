@@ -292,7 +292,6 @@ elif st.session_state.stage == 5:
         <div class="star" style="left: 75%; animation-duration: 4.8s; animation-delay: 1.2s;">★</div>
     </div>
     """, unsafe_allow_html=True)
-    st.balloons()
     st.success("🚩 **红旗漫卷西风！** 你们成功翻越了夹金山，率先在达维镇与红四方面军先头部队胜利会师！")
     
     st.markdown("""
