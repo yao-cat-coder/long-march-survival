@@ -56,7 +56,6 @@ p, span, label, h1, h2, h3, div {{
     box-shadow: 0 0 15px rgba(255, 75, 75, 0.5);
     transform: translateY(-2px);
 }}
-/* 统一升级后的档案框样式 */
 .history-card {{
     background: linear-gradient(135deg, rgba(30, 30, 35, 0.85), rgba(15, 15, 20, 0.95));
     border: 1px solid rgba(212, 175, 55, 0.4);
