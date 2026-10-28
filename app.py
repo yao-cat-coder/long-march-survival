@@ -257,6 +257,41 @@ elif st.session_state.stage == 4:
             st.rerun()
 
 elif st.session_state.stage == 5:
+    # 1. 注入漫天飘落红星的 CSS 特效
+    st.markdown("""
+    <style>
+    .star-container {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        pointer-events: none; /* 防止星星挡住鼠标点击 */
+        z-index: 9999;
+        overflow: hidden;
+    }
+    .star {
+        position: absolute;
+        top: -10%;
+        color: #ff3333; /* 鲜红色 */
+        font-size: 24px;
+        text-shadow: 0 0 10px #ff0000, 0 0 20px #ffcc00; /* 发光效果 */
+        animation: fall linear infinite;
+    }
+    @keyframes fall {
+        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+    </style>
+    <div class="star-container">
+        <div class="star" style="left: 10%; animation-duration: 4s; animation-delay: 0s;">★</div>
+        <div class="star" style="left: 20%; animation-duration: 5.5s; animation-delay: 1s;">★</div>
+        <div class="star" style="left: 35%; animation-duration: 3.8s; animation-delay: 2s;">★</div>
+        <div class="star" style="left: 50%; animation-duration: 4.5s; animation-delay: 0.5s;">★</div>
+        <div class="star" style="left: 65%; animation-duration: 5s; animation-delay: 1.5s;">★</div>
+        <div class="star" style="left: 80%; animation-duration: 3.5s; animation-delay: 2.5s;">★</div>
+        <div class="star" style="left: 90%; animation-duration: 4.2s; animation-delay: 0.2s;">★</div>
+        <div class="star" style="left: 45%; animation-duration: 6s; animation-delay: 3s;">★</div>
+        <div class="star" style="left: 75%; animation-duration: 4.8s; animation-delay: 1.2s;">★</div>
+    </div>
+    """, unsafe_allow_html=True)
     st.balloons()
     st.success("🚩 **红旗漫卷西风！** 你们成功翻越了夹金山，率先在达维镇与红四方面军先头部队胜利会师！")
     
