@@ -1,41 +1,4 @@
 import streamlit as st
-
-st.set_page_config(page_title="长征·雪山求生", page_icon="🏔️", layout="wide")
-
-st.markdown("""
-<style>
-.history-box {
-    background-color: rgba(200, 180, 150, 0.1);
-    border-left: 5px solid #d9534f;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 5px;
-    color: #333 !important;
-}
-.danger-box {
-    background-color: rgba(255, 0, 0, 0.1); 
-    border: 2px solid #ff4b4b; 
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    font-weight: bold;
-    color: #ff4b4b;
-}
-.success-card {
-    background-color: rgba(0, 255, 0, 0.1); 
-    border-left: 8px solid #00ff00; 
-    padding: 10px 20px;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.2); 
-    color: #006600 !important;
-}
-</style>
-""", unsafe_allow_html=True)
-
-st.title("🏔️ 长征·翻越夹金山")
-st.write("""夹金山是红军穿越的第一座雪山，它既是地理上的天险，更是战略上的关键隘口。翻越夹金山当地民谣唱道：“夹金山，夹金山，鸟儿飞不过，人也不可攀。要想越过夹金山，除非神仙到人间”。蒋介石重兵围追堵截，封锁川西要道，这座看似不可能翻阅的神山成了红军唯一可能出其不意、快速北上的生路。作为先遣队的红四团进入了雪山，而你作为这只先遣队的领导者，任务是带领部队活下去！！！""")
-
-st.divider()
-
 if "stage" not in st.session_state:
     st.session_state.stage = 1
 if "c1" not in st.session_state:
@@ -46,7 +9,82 @@ if "c3" not in st.session_state:
     st.session_state.c3 = 0
 if "c4" not in st.session_state:
     st.session_state.c4 = 0
-
+if st.session_state.stage == 1:
+    current_bg = bg_1
+elif st.session_state.stage == 2:
+    current_bg = bg_2
+elif st.session_state.stage == 3:
+    current_bg = bg_3
+elif st.session_state.stage == 4:
+    current_bg = bg_4
+else:
+    current_bg = bg_5
+st.set_page_config(page_title="长征·雪山求生", page_icon="🏔️", layout="wide")
+bg_1 = "https://s41.ax1x.com/2026/10/28/pnsTiKx.jpg" 
+bg_2 = "https://s41.ax1x.com/2026/10/28/pnsTGdS.jpg" 
+bg_3 = "https://s41.ax1x.com/2026/10/28/pnsTJIg.jpg" 
+bg_4 = "https://s41.ax1x.com/2026/10/28/pnsTtiQ.jpg" 
+bg_5 = "https://s41.ax1x.com/2026/10/28/pnsTNGj.jpg" 
+st.markdown(f"""
+<style>
+[data-testid="stAppViewContainer"] {{
+    background-image: url("{current_bg}");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}}
+[data-testid="stAppViewContainer"] > section {{
+    background-color: rgba(15, 15, 26, 0.75) !important; 
+}}
+p, span, label, h1, h2, h3, div {{
+    color: #ffffff !important;
+}}
+.stButton>button {{
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}}
+.stButton>button:hover {{
+    border-color: #ff4b4b !important;
+    box-shadow: 0 0 15px rgba(255, 75, 75, 0.5);
+    transform: translateY(-2px);
+}}
+.history-card {{
+    background: linear-gradient(135deg, rgba(30, 30, 35, 0.85), rgba(15, 15, 20, 0.95));
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-left: 6px solid #b22222;
+    padding: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.03);
+    border-radius: 6px;
+    font-family: "Georgia", "Times New Roman", "KaiTi", serif;
+    line-height: 1.6;
+    letter-spacing: 1px;
+}}
+.history-card b {{
+    color: #e5c158 !important;
+    font-size: 1.1em;
+    text-shadow: 1px 1px 2px #000;
+}}
+.danger-card {{
+    background: linear-gradient(135deg, rgba(80, 0, 0, 0.85), rgba(30, 0, 0, 0.95));
+    border: 1px solid rgba(255, 75, 75, 0.5);
+    border-left: 6px solid #ff0000;
+    box-shadow: 0 8px 25px rgba(255, 0, 0, 0.2);
+    color: #ffcccc !important;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 6px;
+    font-family: "Georgia", serif;
+}}
+</style>
+""", unsafe_allow_html=True)
+st.title("🏔️ 长征·翻越夹金山")
+st.write("""夹金山是红军穿越的第一座雪山，它既是地理上的天险，更是战略上的关键隘口。翻越夹金山当地民谣唱道：“夹金山，夹金山，鸟儿飞不过，人也不可攀。要想越过夹金山，除非神仙到人间”。蒋介石重兵围追堵截，封锁川西要道，这座看似不可能翻阅的神山成了红军唯一可能出其不意、快速北上的生路。作为先遣队的红四团进入了雪山，而你作为这只先遣队的领导者，任务是带领部队活下去！！！""")
+st.divider()
 if st.session_state.stage == 1:
     st.image("https://img.kalvin.cn/d/file/2022-06-07/1654611553373538.jpg", caption="夹金山脚下的荒凉与严寒", use_container_width=True)
     st.subheader("第一关：御寒衣物的筹集")
@@ -55,7 +93,6 @@ if st.session_state.stage == 1:
     
     你该如何筹集物资？
     """)
-    
     col1, col2 = st.columns(2)
     with col1:
         if st.button("带武器冲进仅存的村落，强行征收衣服和粮食", use_container_width=True):
@@ -63,7 +100,6 @@ if st.session_state.stage == 1:
     with col2:
         if st.button("严格执行民族政策，不拿群众一物，按价购买", use_container_width=True):
             st.session_state.c1 = 2
-
     if st.session_state.c1 == 1:
         st.error("""💀 **全军覆没！**
         因为你的举动更加坐实了国民党的宣传，没有村落剩余，因为抢到的衣物和粮食太少了，他们倒下后就再也没有站起来，很多人冻伤饿死。最后你也撑不住，冻死了。""")
@@ -76,7 +112,6 @@ if st.session_state.stage == 1:
         if st.button("🔄 重新选择", type="primary"):
             st.session_state.c1 = 0
             st.rerun()
-            
     elif st.session_state.c1 == 2:
         st.success(""" **出发！**
         严明的纪律最终感化了群众，使他们从躲藏转为拥护。筹集到羊皮、棉衣、白酒、辣椒等，虽受当地贫瘠条件限制无法满足全部需求，但根本上维护了红军的信誉。""")
@@ -89,7 +124,6 @@ if st.session_state.stage == 1:
             st.session_state.stage = 2
             st.session_state.c1 = 0
             st.rerun()
-
 elif st.session_state.stage == 2:
     st.image("https://img.kalvin.cn/d/file/2022-06-07/1654611553373538.jpg", caption="陡峭的冰雪路面，暗藏杀机", use_container_width=True)
     st.subheader("第二关：冰雪路面无防滑装备")
@@ -100,7 +134,6 @@ elif st.session_state.stage == 2:
     
     但有效的防滑装备，从源头上就“没有”。而你该怎么解决这个问题？
     """)
-    
     col1, col2 = st.columns(2)
     with col1:
         if st.button("不管防滑，直接硬闯，让战士们注意一点", use_container_width=True):
@@ -108,7 +141,6 @@ elif st.session_state.stage == 2:
     with col2:
         if st.button("向猎户学习，自制“脚马子”并结队前行", use_container_width=True):
             st.session_state.c2 = 2
-
     if st.session_state.c2 == 1:
         st.error("""💀 **全军覆没！**
         尖兵站不稳、凿不出踏脚孔，后续无足迹可循；草鞋无抓地力，踩偏即滑坠，结队缺失还会导致连锁坠崖；行军速度崩溃，停留更久，冻伤、冻亡成倍上升；足迹被新雪冰雹抹掉，后队迷路掉队，建制难以维持；先遣队自身难通过，更无法为全军开路。""")
@@ -120,7 +152,6 @@ elif st.session_state.stage == 2:
         if st.button("🔄 重新选择", type="primary"):
             st.session_state.c2 = 0
             st.rerun()
-            
     elif st.session_state.c2 == 2:
         st.success("""**继续前行**
         少数尖兵靠脚马子或钉鞋勉强开路，多数人靠布条麻绳、拐棍和结队沿足迹前行，维持了先遣队基本通过。行军速度慢、冻伤磨伤多，滑坠和连锁坠崖造成严重牺牲。以巨大代价完成了开路任务。""")
@@ -134,7 +165,6 @@ elif st.session_state.stage == 2:
             st.session_state.stage = 3
             st.session_state.c2 = 0
             st.rerun()
-
 elif st.session_state.stage == 3:
     st.image("https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?q=80&w=1000&auto=format&fit=crop", caption="在风雪中逐渐失去体温的危险", use_container_width=True)
     st.subheader("第三关：坐下的诱惑")
@@ -143,7 +173,6 @@ elif st.session_state.stage == 3:
     
     有战士问你，能不能坐下来休息一会？
     """)
-    
     col1, col2 = st.columns(2)
     with col1:
         if st.button("静坐休息", use_container_width=True):
@@ -151,7 +180,6 @@ elif st.session_state.stage == 3:
     with col2:
         if st.button("带头高呼“千万不要坐下”", use_container_width=True):
             st.session_state.c3 = 2
-
     if st.session_state.c3 == 1:
         st.error("""💀 **全军覆没！**
         极度寒冷与疲惫会麻痹神经，让人产生虚假的温暖舒适感，停下坐下休息成了致命的诱惑。那些坐下的战士，体温在静坐中飞速流失，在原地被冻僵，飞雪很快为他们盖上“被子”。""")
@@ -163,7 +191,6 @@ elif st.session_state.stage == 3:
         if st.button("🔄 重新选择", type="primary"):
             st.session_state.c3 = 0
             st.rerun()
-            
     elif st.session_state.c3 == 2:
         st.success("""**继续前行**
         你选择了互相搀扶、强帮弱、大助小。在极度缺氧和严寒中，大家用绑腿结成绳索，用身躯相互取暖。虽然许多人冻坏了脚趾，但你们成功突破了生理极限，全连无一人掉队，建制完整保全！这一刻，你们用生命书写了什么是真正的战友情。""")
@@ -177,7 +204,6 @@ elif st.session_state.stage == 3:
             st.session_state.stage = 4
             st.session_state.c3 = 0
             st.rerun()
-
 elif st.session_state.stage == 4:
     st.image("https://images.unsplash.com/photo-1520116468816-95b69f847357?q=80&w=1000&auto=format&fit=crop", caption="吞噬一切的午后暴风雪", use_container_width=True)
     st.subheader("第四关：雪盲与死神的暴风雪")
@@ -186,7 +212,6 @@ elif st.session_state.stage == 4:
     
     更糟的是，强烈的雪光让大量战士患上雪盲，泪流不止，失去了方向感。有人提议，用绑腿把大家串连在一起，互相拉扯着冲顶。
     """)
-    
     col1, col2 = st.columns(2)
     with col1:
         if st.button("把所有人用绑腿绳串起来，顶着暴风雪强行冲顶", use_container_width=True):
@@ -194,7 +219,6 @@ elif st.session_state.stage == 4:
     with col2:
         if st.button("停止冲锋，用布条蒙眼避风，等待老乡说的天气窗口期", use_container_width=True):
             st.session_state.c4 = 2
-
     if st.session_state.c4 == 1:
         st.error("""💀 **全军覆没！**
         你们以为绳子是救命稻草，却成了催命符。狂风刮来，一名失明的战士脚滑坠崖，结绳导致后面的战士来不及松手，一个接一个被拽下山谷。留在原地休息的战士，在冰雹中被活活砸死。队伍建制彻底溃散。""")
@@ -207,7 +231,6 @@ elif st.session_state.stage == 4:
         if st.button("🔄 重新选择", type="primary"):
             st.session_state.c4 = 0
             st.rerun()
-            
     elif st.session_state.c4 == 2:
         st.success("""**继续前行**
         你没有被恐惧吞噬，下令全员原地围圈抱团，用布条遮住眼睛缓解雪盲。你们熬过了最猛烈的冰雹，趁着天气短暂放晴的窗口期，采取“强帮弱、大助小”的纪律，成功翻过了主峰！""")
@@ -221,7 +244,6 @@ elif st.session_state.stage == 4:
             st.session_state.stage = 5
             st.session_state.c4 = 0
             st.rerun()
-
 elif st.session_state.stage == 5:
     st.balloons()
     st.success("🚩 **红旗漫卷西风！** 你们成功翻越了夹金山，率先在达维镇与红四方面军先头部队胜利会师！")
@@ -231,10 +253,8 @@ elif st.session_state.stage == 5:
         <b>📜 历史回响：</b> 1935年6月，红四团作为全军先锋，用血肉之躯趟出了这条生命线。这座被当地人称为“鸟儿飞不过”的神山，被这群穿着草鞋、嚼着辣椒的年轻人彻底征服。但先遣队的脚步没有停下，前方还有更致命的茫茫草地等待着你们……
     </div>
     """, unsafe_allow_html=True)
-    
     st.write("### 🏆 游戏通关！先遣队使命达成！")
     st.write("**思政小贴士**：长征不仅是一次军事上的战略转移，更是一次理想信念的伟大远征。红军将士靠着坚定的革命信念、官兵一致的团结精神以及人民群众的拥护，战胜了极寒与缺氧。今天，我们通过代码重温这段历史，是为了在新时代的长征路上，继续传承这份不屈的精神！")
-    
     if st.button("重走长征路（重新开始）", type="primary"):
         st.session_state.stage = 1
         st.rerun()
